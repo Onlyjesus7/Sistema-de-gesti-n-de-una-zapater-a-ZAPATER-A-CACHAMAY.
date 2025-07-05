@@ -102,7 +102,7 @@ La aplicación se iniciará, mostrando la ventana principal con la lista de zapa
 
 Los datos de los zapatos se almacenan en un archivo binario llamado `zapatos.dat` en el mismo directorio que el ejecutable.
 
-## Detalles Técnicos
+## Arquitectura y Modelo de Datos
 
 El programa está estructurado en varios ficheros para separar las funcionalidades:
 
@@ -114,6 +114,22 @@ El programa está estructurado en varios ficheros para separar las funcionalidad
 *   `constants.h`: Define constantes utilizadas en el programa, como el nombre del fichero de datos.
 
 La persistencia de los datos se consigue guardando un array de estructuras `Zapato` directamente en un fichero binario (`zapatos.dat`). El programa carga este array en memoria al arrancar y lo vuelve a guardar en el fichero cada vez que se realiza un cambio (añadir, modificar o eliminar un producto).
+
+### Estructuras de Datos Clave
+
+Para manejar la información, el proyecto se basa en las siguientes estructuras (definidas en `data_types.h`):
+
+*   **`Producto`**: Es la plantilla para cada zapato o artículo en la tienda. Contiene todos sus detalles, desde el código y nombre hasta el costo, precio de venta y cantidad en stock. Se utiliza principalmente en el **Módulo de Inventario** para la gestión de productos y en el **Módulo de Productos** para mostrarlos.
+
+*   **`Cliente`**: Almacena la información de contacto de cada cliente que compra en la tienda. Es la base del **Módulo de Clientes** y se utiliza en el **Módulo de Facturación** para asociar una venta a una persona.
+
+*   **`Trabajador`**: Guarda los datos de los empleados de la tienda. Toda la gestión de esta estructura se realiza en el **Módulo de Trabajadores**.
+
+*   **`Factura`**: Representa una venta completa. Contiene los datos del cliente, la fecha, el monto total y, lo más importante, una lista de los productos vendidos en esa transacción.
+
+*   **`DetalleFactura`**: Es una línea dentro de una factura. Especifica qué producto se vendió, cuántas unidades y a qué precio. Una `Factura` puede tener múltiples `DetalleFactura`.
+
+En la versión actual, todos estos datos se gestionan en memoria mediante listas enlazadas de GLib (`GList`) y se inicializan con datos de ejemplo al arrancar la aplicación. No hay persistencia en disco.
 
 ## Desglose Detallado de Funciones
 
