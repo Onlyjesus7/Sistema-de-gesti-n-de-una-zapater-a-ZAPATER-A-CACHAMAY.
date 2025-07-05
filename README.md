@@ -1,4 +1,4 @@
-# Zapatería Guayana - Sistema de Gestión
+# Zapatería Cachamay - Sistema de Gestión
 
 Este es un sistema de gestión de inventario para una zapatería, desarrollado en C con la biblioteca GTK para la interfaz gráfica. Permite a los usuarios administrar productos, realizar ventas y llevar un registro del inventario.
 
