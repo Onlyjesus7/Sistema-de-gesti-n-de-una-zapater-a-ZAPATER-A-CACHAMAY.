@@ -77,7 +77,7 @@ La forma más sencilla de obtener un entorno de desarrollo C con GTK en Windows 
 
 1.  Clona el repositorio a tu máquina local:
     ```bash
-    git clone https://github.com/tu_usuario/Zapateria_Guayana_code.git
+    git clone git@github.com:Onlyjesus7/Sistema-de-gesti-n-de-una-zapater-a-ZAPATER-A-CACHAMAY..git
     ```
 2.  Navega al directorio del proyecto:
     ```bash
